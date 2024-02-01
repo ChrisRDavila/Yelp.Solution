@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
+    @await Html.PartialAsync("_Header")
+    <br/>
+    <div class="card">
     @RenderBody()
     @await Html.PartialAsync("Footer")
+    </div>  
   </body>
 </html>

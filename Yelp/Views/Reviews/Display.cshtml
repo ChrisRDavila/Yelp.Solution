@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Yelp.Models;
+
+<p>Showing all reviews for restaurants above @ViewBag.Query</p>
+
+@if (@Model.Count == 0)
+{
+  <h3>No reviews match this criteria!</h3>
+} 
+else
+{
+  <ul>
+    @foreach (Review review in Model)
+    {
+      <li>@review.Restaurant.Name | @review.Rating | @Html.ActionLink($"{review.User}", "Details", new { id = review.ReviewId })</li>
+    }
+  </ul>
+}
+
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

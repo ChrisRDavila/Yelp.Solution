@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Yelp.Models.Review
+
+<h4>Add a new review</h4>
+
+<p><strong>NOTE:</strong> You need to have at least one restaurant before you can add an review!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Restaurants") to create a restaurant.</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.User)
+  @Html.TextBoxFor(model => model.User)
+  <br/>
+  @Html.LabelFor(model => model.Rating)
+  @Html.TextBoxFor(model => model.Rating)
+  <br/>
+  @Html.LabelFor(model => model.Critique)
+  @Html.TextAreaFor(model => model.Critique)
+  <br/>
+
+  @Html.LabelFor(model => model.Restaurant)
+  @Html.DropDownList("RestaurantId")
+  <br/>
+
+  <input type="submit" value="Add new review" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all review", "Index")</p>

@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Filter out restaurants below specified Rating (1-10)</h2>
+
+@using (Html.BeginForm("Display", "Reviews", FormMethod.Get))
+{
+  <input type="number" name="searchQuery" />
+  <input type="submit" value="Filter" class="btn btn-outline-success" />
+}
+<h2> @Html.ActionLink("🌮 Best Restaurants In Town! 🍔", "Index", "Home") </h2>

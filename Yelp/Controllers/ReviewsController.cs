@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Yelp.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Yelp.Controllers
 {
@@ -75,9 +76,42 @@ namespace Yelp.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       Review thisReview = _db.Reviews.FirstOrDefault(review => review.ReviewId == id);
-      _db.Review.Remove(thisReview);
+      _db.Reviews.Remove(thisReview);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+    public ActionResult Filter()
+    {
+      List<Review> model = _db.Reviews
+                            .Include(review => review.Restaurant)
+                            .ToList();
+      return View();
+    }
+
+
+    private async Task<List<Review>> Search(int searchQuery)
+    {
+      IQueryable<Review> reviewsList = _db.Set<Review>();
+
+      if (searchQuery != 0)
+      {
+        return await reviewsList?
+                                .Include(review => review.Restaurant)
+                                .Where(review => review.Rating >= searchQuery)
+                                .OrderByDescending(review => review.Rating)
+                                .ToListAsync();
+      }
+      else
+      {
+        return await reviewsList.ToListAsync();
+      }
+    }
+
+    public async Task<IActionResult> Display(int searchQuery)
+    {
+      List<Review> resultList = await Search(searchQuery);
+      ViewBag.Query = searchQuery.ToString();
+      return View(resultList);
     }
   }
 }

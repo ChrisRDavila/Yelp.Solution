@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Yelp.Models.Restaurant
+@using Yelp.Models
+
+<h2>Restaurant Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.Address): @Html.DisplayFor(model => model.Address)</h3>
+<h3>@Html.DisplayNameFor(model => model.Hours): @Html.DisplayFor(model => model.Hours)</h3>
+@if (@Model.Reviews.Count == 0)
+{
+  <h3>No reviews have been added to this restaurant yet!</h3>
+} 
+else
+{
+  <h3>Reviews:</h3>
+  <ul>
+    @foreach (Review review in Model.Reviews)
+    {
+      <li>@Html.ActionLink($"{review.User}", "Details", "Reviews", new { id = review.ReviewId })</li>
+    }
+  </ul>
+}
+<h3>@Html.DisplayNameFor(model => model.Cuisine): @Html.DisplayFor(model => model.Cuisine.Type)</h3>
+
+<p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>

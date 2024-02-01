@@ -1,0 +1,9 @@
+<div id="headerDiv">
+<h2> @Html.ActionLink("🌮 Best Restaurants In Town! 🍔", "Index", "Home") </h2>
+
+  @using (Html.BeginForm("Results", "Restaurants", FormMethod.Get))
+  {
+    <input type="text" name="searchQuery" />
+    <input type="submit" value="Filter" class="btn btn-outline-success" />
+  }
+</div>

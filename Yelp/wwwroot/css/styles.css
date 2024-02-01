@@ -1,9 +1,57 @@
 div#footer {
+  color: aliceblue;
 	position:fixed;
 	bottom:0px;
 	left:0px;
 	width:100%;
-	color:#CCC;
-	background:#333;
+	background:rgb(75, 141, 106);
 	padding:8px;
 }
+
+#headerDiv {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 10px;
+  text-align: center;
+  border-color: rgb(125, 197, 158);
+  border-style: outset;
+	background-image: url('../img/bground1.jpeg');
+	border-radius: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 20px;
+  background-color: rgb(203, 235, 218);
+  text-align: center;
+  text-indent: 10px;
+	padding-bottom: 20px;
+	padding: 6px 16px;
+	width: 80%;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+	margin-top: 20px;
+  background-image: url('../img/bground1.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: rgb(125, 197, 158);
+  border-style: outset;
+}
+
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.spacing {
+  padding-top: 15px;
+  line-height: 20px;
+}
+
+

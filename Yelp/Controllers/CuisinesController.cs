@@ -70,5 +70,26 @@ namespace Yelp.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Search()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Search(string search)
+    {
+      List<Cuisine> model = _db.Cuisines.Where(cuisine => cuisine.Type.Contains(search)).ToList();
+      ViewBag.Search = search;
+      return View(model);
+    }
+
+    public ActionResult Display()
+    {
+      List<Cuisine> model = _db.Cuisines
+                            .OrderBy(cuisine => cuisine.Type)
+                            .ToList();
+      return View(model);
+    }
   }
 }

@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Yelp.Models.Review
+
+<h2>Edit</h2>
+
+<h4>Edit this review: @Html.DisplayFor(model => model.User)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ReviewId)
+
+  @Html.LabelFor(model => model.User)
+  @Html.EditorFor(model => model.User)
+  @Html.LabelFor(model => model.Rating)
+  @Html.EditorFor(model => model.Rating)
+  @Html.LabelFor(model => model.Critique)
+  @Html.EditorFor(model => model.Critique)
+
+  @Html.LabelFor(model => model.Restaurant)
+  @Html.DropDownList("RestaurantId")
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

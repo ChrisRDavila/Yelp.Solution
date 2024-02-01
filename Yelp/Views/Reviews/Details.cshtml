@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Yelp.Models.Review
+
+<h2>Review Details</h2>
+<h3>@Html.DisplayNameFor(model => model.User): @Html.DisplayFor(model => model.User)</h3>
+<h3>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)</h3>
+<h3>@Html.DisplayNameFor(model => model.Critique): @Html.DisplayFor(model => model.Critique)</h3>
+<h3>@Html.DisplayNameFor(model => model.Restaurant): @Html.DisplayFor(model => model.Restaurant.Name)</h3>
+
+<p>@Html.ActionLink("Edit Review", "Edit", new { id = Model.ReviewId })</p>
+<p>@Html.ActionLink("Delete Review", "Delete", new { id = Model.ReviewId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
