@@ -65,13 +65,12 @@ ul {
   padding: 2px 1px;
   margin-bottom: 2px;
   background-color:azure;
-  border-radius: 20px;
+  border-radius: 5px;
   border-color: black;
   border: 5px;
   border-style: double;
   position: inherit;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  opacity: .7;
 }
 
 .jumbotron.scroll-left {
