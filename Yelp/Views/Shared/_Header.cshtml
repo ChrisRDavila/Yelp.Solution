@@ -1,5 +1,9 @@
 <div id="headerDiv">
-<h2> @Html.ActionLink("🌮 Best Restaurants In Town! 🍔", "Index", "Home") </h2>
+  <div class= "jumbotron">
+    <div class="fluid-container">
+      <marquee> @Html.ActionLink("🌮 Best Restaurants In Town! 🍔", "Index", "Home") </marquee>
+    </div>
+  </div>
 
   @using (Html.BeginForm("Results", "Restaurants", FormMethod.Get))
   {
